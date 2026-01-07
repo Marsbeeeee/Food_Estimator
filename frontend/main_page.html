@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="zh-CN">
   <head>
@@ -124,19 +123,19 @@
         margin-top:10px;
         display:grid;
         place-items:center;
-        min-height:160px;
+        min-height:170px;
       }
 
       .logo{
-        width:160px;
-        height:160px;
+        width:170px;
+        height:170px;
         object-fit:contain;
         image-rendering:pixelated;
       }
 
       .placeholder{
-        width:160px;
-        height:160px;
+        width:170px;
+        height:170px;
         display:grid;
         place-items:center;
         border:2px dashed #333;
@@ -151,6 +150,16 @@
 
       .muted{
         opacity:0.75;
+      }
+
+      .card-actions{
+        margin-top:14px;
+        display:grid;
+        gap:12px;
+      }
+
+      .card-actions .nes-btn{
+        width:100%;
       }
 
       /* 小屏幕 */
@@ -225,11 +234,12 @@
         <!-- Card 1 -->
         <article class="nes-container with-title card">
           <p class="title">
-            <span class="nes-text is-error">No.1</span> KFC
+            <i class="nes-icon trophy is-small"></i>
+            <span class="nes-text is-error">Trending</span>
           </p>
 
           <div class="card-top">
-            <span class="nes-text is-primary">Trending</span>
+            <span class="nes-text is-primary">Most searched</span>
             <div class="nes-badge">
               <span class="is-error">HOT</span>
             </div>
@@ -240,23 +250,28 @@
           </div>
 
           <p class="card-desc">
-            作为你的初始数据源最合适：菜单经典、品类清晰，方便先把“估算流程”跑通。
+            当前热门榜首：用它来测试你的估算流程最稳。点进去看经典菜单，然后一键估算 calories / protein。
           </p>
 
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="nes-btn is-success" type="button">View items</button>
-            <button class="nes-btn" type="button">Estimate</button>
+          <div class="card-actions">
+            <button class="nes-btn is-success" type="button">
+              <i class="nes-icon star is-small"></i>
+              View stores
+            </button>
           </div>
         </article>
 
         <!-- Card 2 -->
         <article class="nes-container with-title card">
-          <p class="title"><span class="nes-text is-primary">No.2</span> Restaurant 2</p>
+          <p class="title">
+            <i class="nes-icon star is-small"></i>
+            <span class="nes-text is-success">Low-Cal</span>
+          </p>
 
           <div class="card-top">
-            <span class="nes-text is-success">Popular</span>
+            <span class="nes-text is-success">Cut-friendly</span>
             <div class="nes-badge">
-              <span class="is-success">OK</span>
+              <span class="is-success">LIGHT</span>
             </div>
           </div>
 
@@ -265,23 +280,28 @@
           </div>
 
           <p class="card-desc">
-            这里放第二个热门餐厅。等你接好后端接口后，把“搜索结果”挂到这里的按钮上。
+            低卡推荐分区：优先展示更“轻”的饭店与菜单选择，适合减脂期快速找到更省热量的选项。
           </p>
 
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="nes-btn is-primary" type="button">Details</button>
-            <button class="nes-btn" type="button">Pin</button>
+          <div class="card-actions">
+            <button class="nes-btn is-success" type="button">
+              <i class="nes-icon star is-small"></i>
+              Low-cal list
+            </button>
           </div>
         </article>
 
         <!-- Card 3 -->
         <article class="nes-container with-title card">
-          <p class="title"><span class="nes-text is-warning">No.3</span> Restaurant 3</p>
+          <p class="title">
+            <i class="nes-icon coin is-small"></i>
+            <span class="nes-text is-primary">High</span>
+          </p>
 
           <div class="card-top">
-            <span class="nes-text is-warning">Hot</span>
+            <span class="nes-text is-primary">Gym mode</span>
             <div class="nes-badge">
-              <span class="is-warning">NEW</span>
+              <span class="is-primary">PRO</span>
             </div>
           </div>
 
@@ -290,23 +310,28 @@
           </div>
 
           <p class="card-desc">
-            建议这里以后做“低卡优先”的推荐位：比如沙拉、鸡胸、无糖饮品等。
+            高蛋白推荐分区：更适合增肌或想吃得更“顶饱”。后面你可以按 protein 或 protein/calorie 排序。
           </p>
 
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="nes-btn is-warning" type="button">Low cal</button>
-            <button class="nes-btn" type="button">Compare</button>
+          <div class="card-actions">
+            <button class="nes-btn is-primary" type="button">
+              <i class="nes-icon star is-small"></i>
+              Protein picks
+            </button>
           </div>
         </article>
 
         <!-- Card 4 -->
         <article class="nes-container with-title card">
-          <p class="title"><span class="nes-text is-success">No.4</span> Restaurant 4</p>
+          <p class="title">
+            <i class="nes-icon heart is-small"></i>
+            <span class="nes-text is-error">Favorites</span>
+          </p>
 
           <div class="card-top">
-            <span class="nes-text is-error">New</span>
+            <span class="nes-text is-error">Save & revisit</span>
             <div class="nes-badge">
-              <span class="is-primary">ADD</span>
+              <span class="is-error">SAVE</span>
             </div>
           </div>
 
@@ -315,12 +340,14 @@
           </div>
 
           <p class="card-desc">
-            放你未来想扩展的餐厅，例如麦当劳或星巴克。你也可以做“用户投票”决定优先级。
+            收藏分区：把你常去的饭店先存起来。之后可以用 localStorage 做“点心收藏”，再加一个快捷对比。
           </p>
 
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="nes-btn is-error" type="button">Vote</button>
-            <button class="nes-btn" type="button">Request</button>
+          <div class="card-actions">
+            <button class="nes-btn is-error" type="button">
+              <i class="nes-icon heart is-small"></i>
+              Add favorite
+            </button>
           </div>
         </article>
       </section>
