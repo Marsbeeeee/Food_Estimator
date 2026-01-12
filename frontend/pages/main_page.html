@@ -5,49 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Estimator</title>
 
-    <!-- NES.css -->
     <link rel="stylesheet" href="https://unpkg.com/nes.css@latest/css/nes.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/main_page.css" />
   </head>
 
   <body>
     <main class="page">
-      <!-- Header -->
+      
       <header class="brand-row">
         <div class="brand-left">
-          <i class="nes-icon star"></i>
+          <i class="nes-icon star is-medium"></i>
           <div>
-            <div style="font-size:18px; font-weight:900;">Food Estimator</div>
-            <div class="subtitle">pixel flavored calories finder</div>
+            <h1 class="main-title">Food Estimator</h1>
+            <div class="subtitle">PIXEL FLAVORED CALORIES</div>
           </div>
-        </div>
-
-        <div class="subtitle muted">
-          <i class="nes-icon trophy is-small"></i>
-          demo
         </div>
       </header>
 
-      <!-- Search -->
-      <section class="nes-container with-title" aria-label="Search">
-        <p class="title">Search</p>
+      <section class="nes-container with-title search-section" aria-label="Search">
+        <h3 class="title">Mission Start</h3>
+
+        <div class="mascot-container">
+            <div class="speech-bubble">I'm hungry!</div>
+            <div class="pixel-slime"></div>
+        </div>
 
         <div class="search-row">
           <div class="nes-field">
-            <label for="q">餐厅或菜品</label>
+            <label for="q">Target (Food Name)</label>
             <input
               id="q"
               class="nes-input"
               type="text"
-              placeholder="例如 KFC 原味鸡腿堡"
-              aria-label="Search input"
+              placeholder="e.g. KFC Spicy Burger"
             />
           </div>
 
           <button class="nes-btn is-primary" type="button">
-            <i class="nes-icon coin is-small"></i>
-            Go
+            Go!
           </button>
 
           <button class="nes-btn" type="button">
@@ -55,139 +51,111 @@
           </button>
         </div>
 
-        <p class="subtitle muted" style="margin-top:14px;">
-          Tip: 先从 KFC 的 5 道经典菜开始，后面再扩展更多餐厅。
+        <p class="subtitle" style="margin-top:14px; opacity:0.7;">
+          <i class="nes-icon coin is-small"></i> 
+          Tip: Try "KFC" to unlock the first map.
         </p>
       </section>
 
-      <!-- Hot -->
       <div class="section-title">
-        <h2 style="margin:0; font-size:16px;">Hot</h2>
-        <div class="nes-badge">
-          <span class="is-warning">TOP</span>
-        </div>
+        <h2 style="font-size:16px;">Select Stage</h2>
+        <i class="nes-icon heart is-small is-empty"></i>
       </div>
 
-      <section class="grid" aria-label="Hot restaurants">
-        <!-- Card 1 -->
-        <article class="nes-container with-title card">
-          <p class="title">
-            <i class="nes-icon trophy is-small"></i>
-            <span class="nes-text is-error">Trending</span>
-          </p>
-
-          <div class="card-top">
-            <span class="nes-text is-primary">Most searched</span>
-            <div class="nes-badge">
-              <span class="is-error">HOT</span>
+      <section class="grid" aria-label="Restaurant Grid">
+        
+        <a href="../pages/trending.html" class="card-link">
+          <article class="nes-container is-rounded card">
+            <div class="card-top">
+              <span class="nes-text is-error">World 1-1</span>
+              <div class="nes-badge">
+                <span class="is-warning">HOT</span>
+              </div>
             </div>
-          </div>
 
-          <div class="logo-wrap">
-            <img class="logo" src="/assets/stores/kfc/KFC_logo.png" alt="KFC logo" />
-          </div>
-
-          <p class="card-desc">
-            当前热门榜首：用它来测试你的估算流程最稳。点进去看经典菜单，然后一键估算 calories / protein。
-          </p>
-
-          <div class="card-actions">
-            <a href="../pages/trending.html" class="nes-btn is-success">
-              <i class="nes-icon trophy is-small"></i>
-              Trending stores
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="nes-container with-title card">
-          <p class="title">
-            <i class="nes-icon star is-small"></i>
-            <span class="nes-text is-success">Low-Cal</span>
-          </p>
-
-          <div class="card-top">
-            <span class="nes-text is-success">Cut-friendly</span>
-            <div class="nes-badge">
-              <span class="is-success">LIGHT</span>
+            <div class="logo-wrap">
+              <img class="logo" src="/assets/stores/kfc/KFC_logo.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" alt="KFC" />
+              <div class="placeholder" style="display:none">NO DATA</div>
             </div>
-          </div>
 
-          <div class="logo-wrap">
-            <div class="placeholder">Logo</div>
-          </div>
-
-          <p class="card-desc">
-            低卡推荐分区：优先展示更“轻”的饭店与菜单选择，适合减脂期快速找到更省热量的选项。
-          </p>
-
-          <div class="card-actions">
-            <button class="nes-btn is-success" type="button">
-              <i class="nes-icon star is-small"></i>
-              Low-cal list
-            </button>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="nes-container with-title card">
-          <p class="title">
-            <i class="nes-icon coin is-small"></i>
-            <span class="nes-text is-primary">High</span>
-          </p>
-
-          <div class="card-top">
-            <span class="nes-text is-primary">Gym mode</span>
-            <div class="nes-badge">
-              <span class="is-primary">PRO</span>
+            <div style="margin-top:10px;">
+              <span class="nes-text is-primary">#Trending</span>
             </div>
-          </div>
 
-          <div class="logo-wrap">
-            <div class="placeholder">Logo</div>
-          </div>
+            <p class="card-desc">
+              The most challenging dungeon. Calculate calories for crispy skins and burgers.
+            </p>
+            
+            </article>
+        </a>
 
-          <p class="card-desc">
-            高蛋白推荐分区：更适合增肌或想吃得更“顶饱”。后面你可以按 protein 或 protein/calorie 排序。
-          </p>
-
-          <div class="card-actions">
-            <button class="nes-btn is-primary" type="button">
-              <i class="nes-icon star is-small"></i>
-              Protein picks
-            </button>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="nes-container with-title card">
-          <p class="title">
-            <i class="nes-icon heart is-small"></i>
-            <span class="nes-text is-error">Favorites</span>
-          </p>
-
-          <div class="card-top">
-            <span class="nes-text is-error">Save & revisit</span>
-            <div class="nes-badge">
-              <span class="is-error">SAVE</span>
+        <a href="#" class="card-link">
+          <article class="nes-container is-rounded card">
+            <div class="card-top">
+              <span class="nes-text is-success">World 1-2</span>
+              <div class="nes-badge">
+                <span class="is-success">EASY</span>
+              </div>
             </div>
-          </div>
 
-          <div class="logo-wrap">
-            <div class="placeholder">Logo</div>
-          </div>
+            <div class="logo-wrap">
+              <div class="placeholder">Subway?</div>
+            </div>
 
-          <p class="card-desc">
-            收藏分区：把你常去的饭店先存起来。之后可以用 localStorage 做“点心收藏”，再加一个快捷对比。
-          </p>
+            <div style="margin-top:10px;">
+              <span class="nes-text is-success">#Diet-Mode</span>
+            </div>
 
-          <div class="card-actions">
-            <button class="nes-btn is-error" type="button">
-              <i class="nes-icon heart is-small"></i>
-              Add favorite
-            </button>
-          </div>
-        </article>
+            <p class="card-desc">
+              Safe zone for players on a cut. Find food with low HP (Calories).
+            </p>
+          </article>
+        </a>
+
+        <a href="#" class="card-link">
+          <article class="nes-container is-rounded card">
+            <div class="card-top">
+              <span class="nes-text is-primary">World 2-1</span>
+              <div class="nes-badge">
+                <span class="is-primary">PRO</span>
+              </div>
+            </div>
+
+            <div class="logo-wrap">
+               <div class="placeholder">Beef?</div>
+            </div>
+
+            <div style="margin-top:10px;">
+              <span class="nes-text is-primary">#Gains</span>
+            </div>
+
+            <p class="card-desc">
+              Boost your STR stats. High protein meals for post-workout recovery.
+            </p>
+          </article>
+        </a>
+
+        <a href="#" class="card-link">
+          <article class="nes-container is-rounded card">
+            <div class="card-top">
+              <span class="nes-text is-error">Save Room</span>
+               <i class="nes-icon heart is-small"></i>
+            </div>
+
+            <div class="logo-wrap">
+               <div class="placeholder">Saved</div>
+            </div>
+
+            <div style="margin-top:10px;">
+              <span class="nes-text is-error">#Favorites</span>
+            </div>
+
+            <p class="card-desc">
+              Your inventory. Quick access to your frequently visited restaurants.
+            </p>
+          </article>
+        </a>
+
       </section>
     </main>
   </body>
