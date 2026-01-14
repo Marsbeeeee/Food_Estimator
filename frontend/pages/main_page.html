@@ -10,6 +10,30 @@
   </head>
 
   <body>
+    <div id="steam-overlay">
+      <div class="side-decoration left-side">
+        <div class="pixel-char chef-cat">
+            <svg viewBox="0 0 32 32" class="pixel-svg">
+                <path fill="#333" d="M4 24h24v8H4z" /> <path fill="#FFA500" d="M10 12h12v14H10z" /> <path fill="#FFF" d="M12 16h8v6h-8z" /> <path fill="#FFF" d="M10 8h4v4h-4z M18 8h4v4h-4z" /> <path fill="#333" d="M12 14h2v2h-2z M18 14h2v2h-2z" /> <path fill="#FFC0CB" d="M15 17h2v1h-2z" /> <g class="chef-hat">
+                    <path fill="#FFF" d="M10 4h12v6H10z M8 2h16v4H8z" />
+                </g>
+                <path fill="#333" class="arm-left" d="M8 18h4v2H8z" />
+                <path fill="#333" class="arm-right" d="M20 18h4v2h-4z" />
+            </svg>
+        </div>
+      </div>
+
+      <div class="side-decoration right-side">
+        <div class="pixel-char hungry-dino">
+            <svg viewBox="0 0 32 32" class="pixel-svg">
+                <path fill="#333" d="M6 26h20v6H6z" /> <path fill="#77DD77" d="M10 10h12v18H10z M22 14h6v10h-6z M22 24h4v4h-4z" /> <path fill="#333" class="dino-eye" d="M14 14h4v4h-4z" /> <path fill="#FF6961" class="dino-mouth" d="M18 20h4v2h-4z" /> <path fill="#FFF" d="M12 24h2v2h-2z M16 24h2v2h-2z" /> </svg>
+            <div class="thought-bubble">I want 🍔!</div>
+        </div>
+      </div>
+      
+      <div id="food-rain-container"></div>
+    </div>
+
     <main class="page">
       <header class="brand-row">
         <div class="brand-left">
@@ -160,5 +184,6 @@
 
       </section>
     </main>
+    <script src="../scripts/main_page.js"></script>
   </body>
 </html>
