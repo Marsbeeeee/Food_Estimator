@@ -232,6 +232,11 @@ h1, h2, h3, .title, .main-title, .card-top span:first-child {
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.mode-diet .hero-icon {
+  margin-left: 2px; /* 轻微调整位置 */
+  margin-top: 10px;
+}
+
 /* --- 数据面板 (下半部分) --- */
 .data-panel {
   height: 90px;
