@@ -60,8 +60,7 @@ h1, h2, h3, .title, .main-title, .card-top span:first-child {
 /* --- 搜索区块 --- */
 .search-section {
   /* 外部间距：拉大与下方 SELECT STAGE 的距离 */
-  margin-bottom: 80px;
-  
+  margin-bottom: 50px;
   position: relative;
   background-color: #fff;
   border: 6px solid transparent !important; 
