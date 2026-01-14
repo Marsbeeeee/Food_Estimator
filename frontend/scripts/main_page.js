@@ -1,65 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-  // --- 1. 鼠标交互视差效果 (Parallax) ---
+
+  // --- 1. 鼠标交互视差效果 ---
   const chef = document.querySelector('.chef-cat');
   const dino = document.querySelector('.hungry-dino');
-  
+
   document.addEventListener('mousemove', (e) => {
-    // 计算鼠标相对于屏幕中心的位置
     const x = (window.innerWidth / 2 - e.pageX) / 50;
     const y = (window.innerHeight / 2 - e.pageY) / 50;
 
-    // 左侧小厨师：跟随移动（或者反向移动产生景深感）
-    if(chef) {
-      chef.style.transform = `translate(${x}px, ${y}px)`;
-    }
-    
-    // 右侧小恐龙：看着鼠标移动，并稍微旋转身体
-    if(dino) {
-      // translate 是位移，rotate 是稍微转身
-      dino.style.transform = `translate(${-x}px, ${-y}px) rotate(${x/2}deg)`;
-    }
+    if(chef) chef.style.transform = `translate(${x}px, ${y}px)`;
+    if(dino) dino.style.transform = `translate(${-x}px, ${-y}px) rotate(${x/2}deg)`;
   });
 
-  // --- 2. 随机生成背景食物粒子 (Food Rain) ---
+  // --- 2. 背景食物雨动画 ---
   const container = document.getElementById('food-rain-container');
   const foods = ['🍔', '🍟', '🍕', '🌭', '🍗', '🍦', '🍩', '🍪', '⭐', '❤️'];
 
   function createFood() {
-    if (!container) return; // 防止找不到容器报错
+    if (!container) return;
 
     const el = document.createElement('div');
-    el.classList.add('food-particle');
+    el.classList.add('food-emoji'); // 对应 CSS 类名
     el.innerText = foods[Math.floor(Math.random() * foods.length)];
     
-    // 随机位置逻辑：
-    let leftPos;
-    if (Math.random() > 0.5) {
-       leftPos = Math.random() * 15; // 左侧 0-15% 区域
+    const isLeft = Math.random() > 0.5;
+    let randomLeft;
+
+    if (isLeft) {
+        randomLeft = Math.random() * 17;
     } else {
-       leftPos = 85 + Math.random() * 15; // 右侧 85-100% 区域
+        randomLeft = 80 + Math.random() * 13;
     }
     
-    el.style.left = `${leftPos}%`;
+    el.style.left = randomLeft + 'vw';
+
+    // 随机大小：20px 到 40px
+    el.style.fontSize = (Math.random() * 20 + 20) + 'px';
     
-    // 随机大小 (20px - 40px)
-    el.style.fontSize = `${20 + Math.random() * 20}px`;
-    
-    // 随机飘升速度 (5s - 15s)
-    const duration = 5 + Math.random() * 10; 
-    el.style.animationDuration = `${duration}s`;
-    
+    // 随机动画时长：4秒 到 9秒
+    const duration = Math.random() * 5 + 4;
+    el.style.animationDuration = duration + 's';
+
     container.appendChild(el);
 
-    // 动画结束后从 DOM 中移除，防止网页变卡
+    // 动画结束后移除
     setTimeout(() => {
       el.remove();
     }, duration * 1000);
   }
 
-  // 启动循环：每 800ms 生成一个食物
+  // 启动生成循环
   setInterval(createFood, 800);
-  
-  // 页面刚加载时先生成几个，避免开场太空
-  for(let i=0; i<5; i++) createFood();
 });

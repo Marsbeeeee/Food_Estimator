@@ -58,378 +58,360 @@ h1, h2, h3, .title, .main-title, .card-top span:first-child {
 .subtitle { font-size: 12px; color: #666; }
 
 /* --- 搜索区块 --- */
+/* --- 1. 搜索区块 (Mission Start) --- */
 .search-section {
-  /* 外部间距：拉大与下方 SELECT STAGE 的距离 */
-  margin-bottom: 50px;
   position: relative;
   background-color: #fff;
-  border: 6px solid transparent !important; 
+  /* 改用简洁的粗像素边框，去掉之前的玫瑰花 */
+  border: 4px solid var(--ink) !important;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.15) !important;
   
-  /* 内部调整 */
-  padding: 40px 32px 28px 32px !important; 
-  
-  background-image: 
-    linear-gradient(#fff, #fff), 
-    repeating-linear-gradient(
-      45deg,
-      #5c4033 0,
-      #5c4033 10px,
-      #462e24 10px, 
-      #462e24 20px
-    ) !important;
-    
-  background-origin: border-box !important;
-  background-clip: padding-box, border-box !important;
-
-  box-shadow: 
-    6px 6px 0 rgba(0,0,0,0.1),
-    inset 0 0 0 2px #fff !important;
-    
-  overflow: visible !important;
+  margin-bottom: 60px; /* 增加间距 */
+  padding: 30px !important;
+  overflow: visible !important; /* 允许史莱姆溢出 */
 }
 
-/* --- 顶部装饰：横向蔓延的荆棘藤蔓 --- */
-.search-section::before {
-  content: "";
+.search-section .title {
+  background: var(--primary);
+  color: #fff;
+  display: inline-block;
+  padding: 4px 12px;
   position: absolute;
-  top: -12px;
-  left: 2px;
-  right: 2px;
-  height: 16px;
-  z-index: 2;
-  
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16' viewBox='0 0 20 16'%3E%3Cpath fill='%235c4033' d='M0 6h20v4H0z'/%3E%3Cpath fill='%235c4033' d='M2 4h2v2H2zM6 2h2v4H6zM12 4h2v2h-2zM16 0h2v6h-2z'/%3E%3Cpath fill='%233e2b22' d='M4 10h2v2H4zM8 10h2v4H8zM14 10h2v2h-2z'/%3E%3C/svg%3E");
-  background-size: 20px 16px;
-  background-repeat: repeat-x;
-  image-rendering: pixelated;
-  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
-  pointer-events: none;
+  top: -24px;
+  left: 20px;
+  transform: none;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+  margin: 0;
+  z-index: 10;
 }
 
-/* --- 角落装饰：玫瑰花 --- */
-.search-section::after {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: -12px;
-  right: -12px;
-  height: 28px;
-  z-index: 3;
-  pointer-events: none;
-
-  background-image: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23228b22' d='M2 12h6v6H2zM16 14h6v6h-6z'/%3E%3Cpath fill='%23006400' d='M4 16h4v2H4zM18 18h2v2h-2z'/%3E%3Cpath fill='%238b0000' d='M6 4h12v12H6z'/%3E%3Cpath fill='%23dc143c' d='M8 6h8v8H8z'/%3E%3Cpath fill='%23ff69b4' d='M10 8h4v4h-4z'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23228b22' d='M2 12h6v6H2zM16 14h6v6h-6z'/%3E%3Cpath fill='%23006400' d='M4 16h4v2H4zM18 18h2v2h-2z'/%3E%3Cpath fill='%238b0000' d='M6 4h12v12H6z'/%3E%3Cpath fill='%23dc143c' d='M8 6h8v8H8z'/%3E%3Cpath fill='%23ff69b4' d='M10 8h4v4h-4z'/%3E%3C/svg%3E");
-  
-  background-size: 28px 28px;
-  background-repeat: no-repeat;
-  background-position: left top, right top; 
-  image-rendering: pixelated;
-  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.15));
-}
-
-
-/* --- 搜索框内部布局 --- */
-.search-row { display: flex; gap: 16px; align-items: flex-end; }
-.search-row .nes-field { flex: 1; }
-.nes-input { font-family: "Press Start 2P", "DotGothic16", monospace !important; font-size: 14px; }
-
-/* 史莱姆与气泡 */
+/* --- 2. 史莱姆动画增强 (Adding Vitality) --- */
 .mascot-container {
   position: absolute;
-  top: -45px;
-  right: 30px;
+  top: -35px;
+  right: 20px;
   z-index: 5;
-  animation: bounce 2s infinite ease-in-out;
+  animation: jelly-bounce 2s infinite; 
 }
+
+@keyframes jelly-bounce {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  25% { transform: translateY(-5px) scale(0.95, 1.05); } /* 起跳前蓄力 */
+  50% { transform: translateY(-20px) scale(1.1, 0.9); }  /* 空中拉伸 */
+  75% { transform: translateY(-5px) scale(0.95, 1.05); } /* 落地缓冲 */
+}
+
 .pixel-slime { width: 40px; height: 30px; background: var(--success); box-shadow: -4px 0 0 var(--ink), 4px 0 0 var(--ink), 0 -4px 0 var(--ink), 0 4px 0 var(--ink), inset 4px 4px 0 rgba(255,255,255,0.5); position: relative; }
 .pixel-slime::before { content: ""; position: absolute; top: 8px; left: 8px; width: 4px; height: 4px; background: var(--ink); box-shadow: 18px 0 0 var(--ink); }
 .speech-bubble { position: absolute; top: -35px; right: 10px; background: #fff; border: 2px solid var(--ink); padding: 6px 8px; font-size: 10px; white-space: nowrap; box-shadow: 2px 2px 0 rgba(0,0,0,0.1); }
 
-/* --- 关卡 Grid --- */
-.grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 32px;
+/* 搜索框布局 */
+.search-row { display: flex; gap: 16px; align-items: flex-end; margin-top: 10px; }
+.search-row .nes-field { flex: 1; }
+.nes-input { 
+  border-width: 4px !important; /* 加粗输入框边框 */
+  box-shadow: none !important; 
+  background: #f8f9fa;
 }
 
+
+/* --- 2. 关卡网格 (Grid) --- */
 .section-title { 
-  margin: 0 0 32px 0;
+  margin: 0 0 40px 0;
   display: flex; 
   align-items: center; 
   gap: 12px; 
 }
 
-/* 链接无样式 */
-.card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
+.grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px; /* 增加卡片间距 */
+  padding-bottom: 40px;
+}
 
-/* --- 卡片基础样式 --- */
+/* 链接容器 */
+.card-link { text-decoration: none; color: inherit; display: block; }
+
+/* --- 3. 全新设计的卡片 (无边框风格) --- */
+/* 重置 nes-container 的默认样式 */
 .game-card.nes-container {
+  border: none !important; /* 核心：去掉默认黑框 */
+  border-radius: 0 !important; /* 变回直角，更像像素块 */
   padding: 0 !important; 
+  
   display: flex;
   flex-direction: column;
-  height: 280px;
-  overflow: hidden;
-  border-width: 4px;
+  height: 260px;
   position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: transparent; /* 背景透明，由子元素填充 */
+  
+  /* 关键：允许内容溢出，这样图标放大时不会被切掉 */
+  overflow: visible !important; 
+  
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 卡片主体容器 */
+.game-card::after {
+  /* 用伪元素做一个带有硬阴影的背景板 */
+  content: "";
+  position: absolute;
+  top: 10px; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  border: 4px solid var(--ink); /* 统一的边框粗细 */
+  z-index: 0;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.15); /* 统一的投影 */
+  transition: all 0.2s;
+}
+
+/* 悬浮交互：整体上浮 */
+.game-card:hover .hero-icon {
+  animation: shake-icon 0.5s ease-in-out;
+  filter: drop-shadow(8px 8px 0 rgba(0,0,0,0.2));
+}
+/* 悬浮时背景板投影加深 */
+.game-card:hover::after {
+  box-shadow: 12px 12px 0 rgba(0,0,0,0.2);
   background: #fff;
 }
 
-/* 悬浮交互：整体上浮 + 投影加深 */
-.game-card:hover {
-  transform: translateY(-8px);
-  z-index: 10;
-  box-shadow: 12px 12px 0 rgba(0,0,0,0.2);
-}
+/* --- 卡片内部结构 --- */
 
-/* --- 1. HUD (左上角悬浮标牌) --- */
+/* 左上角 HUD 标签 */
 .hud-top {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 0px;
+  left: -8px;
   z-index: 5;
-  pointer-events: none;
+  transform: rotate(-5deg);
+  transition: transform 0.3s;
+}
+.game-card:hover .hud-top {
+  transform: rotate(0deg) scale(1.1);
 }
 
-/* --- 2. 视觉舞台 (Visual Stage) --- */
+/* 视觉区域 (上半部分) */
 .visual-stage {
-  flex: 6.5;
+  flex: 1;
   position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
-  border-bottom: 4px solid var(--ink);
-  overflow: hidden;
-}
+  margin-top: 10px;
+  }
 
-/* 给每个模式加上独特的背景色 */
-.mode-hot .visual-stage   { background: #fff5e6; } 
-.mode-diet .visual-stage  { background: #e6fffa; } 
-.mode-gains .visual-stage { background: #e6f7ff; } 
-.mode-save .visual-stage  { background: #fff0f0; } 
-
-/* 舞台聚光灯效果 */
+/* 聚光灯 (改为圆形背景块) */
 .spotlight {
   position: absolute;
-  width: 140px; height: 140px;
-  background: rgba(255,255,255,0.6);
+  width: 120px; height: 120px;
   border-radius: 50%;
-  top: 50%; left: 50%;
+  top: 55%; left: 50%;
   transform: translate(-50%, -50%);
-  filter: blur(10px);
+  z-index: -1;
+  transition: all 0.3s;
 }
 
-/* --- 3. 巨型图标 (Hero Icon) --- */
+/* 为不同模式定义主题色 (用于聚光灯和文字) */
+.mode-hot   { --theme-color: var(--warning); }
+.mode-diet  { --theme-color: var(--success); }
+.mode-gains { --theme-color: var(--primary); }
+.mode-save  { --theme-color: var(--error); }
+
+.game-card .spotlight { background: var(--theme-color); opacity: 0.4; }
+.game-card:hover .spotlight { opacity: 0.4; transform: translate(-50%, -50%) scale(1.1); }
+
+/* --- 核心图标 (Hero Icon) --- */
 .hero-icon {
-  width: 100px;
-  height: 100px;
-  z-index: 2;
-  filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.2));
+  width: 90px;
+  height: 90px;
+  z-index: 10; /* 最上层 */
+  filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.1));
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* 悬浮时：图标猛烈放大 */
-.game-card:hover .hero-icon {
-  transform: scale(1.2) rotate(-5deg);
-}
-
-/* --- 4. 数据面板 (Data Panel) --- */
+/* --- 数据面板 (下半部分) --- */
 .data-panel {
-  flex: 3.5;
-  background: #fff;
-  padding: 12px 16px;
+  height: 90px;
+  padding: 0 20px 20px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 .level-title {
   font-family: "Press Start 2P", cursive;
-  font-size: 16px;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--ink);
 }
 
 .level-desc {
   font-family: "DotGothic16", sans-serif;
   font-size: 12px;
-  color: #888;
-  margin: 0 0 10px 0;
+  color: #666;
+  margin-bottom: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* 装饰性血条/进度条 */
+/* 进度条 */
 .pixel-bar {
-  height: 8px;
+  height: 6px;
   width: 100%;
   background: #eee;
-  position: relative;
-  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.1);
+  border: 2px solid var(--ink); /* 给进度条加个小边框 */
 }
 .pixel-bar::after {
   content: "";
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 60%;
-  background: currentColor;
+  display: block;
+  height: 100%;
+  background: var(--theme-color); /* 使用 CSS 变量自动匹配颜色 */
+  width: 50%; /* 默认宽度，JS可控 */
 }
-/* 不同颜色的条 */
-.pixel-bar.is-warning { color: var(--warning); width: 80%; }
-.pixel-bar.is-success { color: var(--success); width: 40%; }
-.pixel-bar.is-primary { color: var(--primary); width: 90%; }
-.pixel-bar.is-error   { color: var(--error);   width: 100%; }
+.mode-hot .pixel-bar::after { width: 80%; }
+.mode-diet .pixel-bar::after { width: 30%; }
+.mode-gains .pixel-bar::after { width: 90%; }
+.mode-save .pixel-bar::after { width: 100%; }
 
 
-/* --- 动画效果 --- */
-.pixel-svg {
-  width: 80px; height: 80px;
-  image-rendering: pixelated; 
-}
-
-/* 火焰 */
 .fire-anim path { animation: fire-flicker 0.2s infinite alternate; }
 @keyframes fire-flicker { 0% { opacity: 0.8; } 100% { opacity: 1; transform: translateY(-1px); } }
 
-/* 气泡 */
 .bubble { animation: bubble-rise 2s infinite ease-in; opacity: 0; }
 .b2 { animation-delay: 1s; }
 @keyframes bubble-rise { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-10px); opacity: 0; } }
 
-/* 蒸汽 */
 .steam { animation: steam-rise 2s infinite linear; transform-origin: center; }
 @keyframes steam-rise { 0% { transform: translateY(0) scaleX(1); opacity: 0.6; } 50% { transform: translateY(-4px) scaleX(1.2); opacity: 0.3; } 100% { transform: translateY(-8px) scaleX(1); opacity: 0; } }
 
-/* 闪光 */
 .sparkle { animation: sparkle-blink 1.5s infinite; }
 .s2 { animation-delay: 0.7s; }
 @keyframes sparkle-blink { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1); } }
-
-/* 宝箱盖子 */
 .chest-lid { transform-origin: 5px 14px; transition: transform 0.3s; }
 .game-card:hover .chest-lid { transform: rotate(-25deg); }
 
-/* 通用弹跳/摇晃 */
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-@keyframes shake { 0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -2px) rotate(-1deg); } 20% { transform: translate(-3px, 0px) rotate(1deg); } 30% { transform: translate(3px, 2px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(1deg); } 50% { transform: translate(-1px, 2px) rotate(-1deg); } 60% { transform: translate(-3px, 1px) rotate(0deg); } 70% { transform: translate(3px, 1px) rotate(-1deg); } 80% { transform: translate(-1px, -1px) rotate(1deg); } 90% { transform: translate(1px, 2px) rotate(0deg); } 100% { transform: translate(1px, -2px) rotate(-1deg); } }
-@keyframes wobble { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+/* 悬浮时的摇晃效果 */
+@keyframes shake-icon { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+.game-card:hover .hero-icon { animation: shake-icon 0.5s ease-in-out; }
 
-/* 悬浮时的特定动画 */
-.game-card:hover .hot-scene .pixel-svg { animation: shake 0.5s infinite; }
-.game-card:hover .diet-scene .pixel-svg { animation: wobble 1s infinite ease-in-out; }
-.game-card:hover .gains-scene .pixel-svg { animation: bounce-meat 0.6s infinite; }
-@keyframes bounce-meat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-/* --- Responsive --- */
+/* --- 响应式 --- */
 @media (max-width: 720px) {
   .brand-row, .search-row { flex-direction: column; align-items: flex-start; }
   .search-row .nes-btn { width: 100%; margin-top: 10px; }
   .mascot-container { top: -45px; right: 0; }
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; gap: 30px; }
 }
 
-/* --- 页面装饰性像素角色 --- */
+/* --- 4. 页面装饰性像素角色 --- */
 #steam-overlay {
   position: fixed;
-  top: 0;
+  top: 0; 
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* 放在内容后面，背景前面 */
-  pointer-events: none; /* 允许点击穿透 */
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 90;
 }
 
-/* 两侧装饰容器 */
 .side-decoration {
   position: absolute;
-  bottom: 20px;
-  width: 150px;
-  height: 300px;
+  bottom: 10px;
+  width: 100px;
+  height: 100px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
 }
 
-.left-side { left: 2%; }
-.right-side { right: 2%; }
+.left-side {
+  left: 20px;
+}
 
-/* 像素角色通用样式 */
+.right-side {
+  right: 20px;
+}
+
+/* 调整 SVG 大小 */
 .pixel-char {
-  width: 120px;
-  height: 120px;
-  position: relative;
-  transition: transform 0.1s ease-out; /* 用于JS交互的平滑移动 */
-}
-
-.pixel-svg {
   width: 100%;
   height: 100%;
+}
+.pixel-char svg {
+  width: 100%;
+  height: auto;
   filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.2));
 }
 
-/* 角色特定的简单动画 */
-.chef-cat {
-  animation: bounce-gentle 2s infinite ease-in-out;
+/* 简单的上下浮动动画 */
+.chef-cat, .hungry-dino {
+  animation: float-char 3s ease-in-out infinite;
 }
-.chef-hat {
-  animation: hat-wobble 3s infinite ease-in-out;
-  transform-origin: center bottom;
-}
-
 .hungry-dino {
-  animation: sway 4s infinite ease-in-out;
-}
-.dino-mouth {
-  transition: height 0.2s;
+  animation-delay: 1.5s;
 }
 
-/* 气泡对话框 */
+@keyframes float-char {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 恐龙的气泡位置微调 */
 .thought-bubble {
   position: absolute;
-  top: -40px;
-  right: -20px;
+  top: -30px;
+  right: 0;
   background: #fff;
-  border: 4px solid #212529;
-  padding: 5px 10px;
-  font-family: "Press Start 2P", cursive;
+  border: 2px solid var(--ink);
+  padding: 4px 8px;
   font-size: 10px;
   white-space: nowrap;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s;
-}
-.hungry-dino:hover .thought-bubble,
-.right-side:hover .thought-bubble {
-  opacity: 1;
-  transform: translateY(0);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  z-index: 100;
 }
 
-/* --- 漂浮的食物粒子 --- */
-.food-particle {
+/* --- 修复：侧边小人定位 (往中间收一点) --- */
+.left-side {
+  left: 80px;  /* 原来是 20px */
+}
+
+.right-side {
+  right: 80px; /* 原来是 20px */
+}
+
+/* --- 修复：食物雨动画样式 --- */
+#food-rain-container {
   position: absolute;
-  font-size: 24px;
-  opacity: 0.6;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1; 
+}
+
+.food-emoji {
+  position: absolute;
+  bottom: -50px; /* 从屏幕下方开始 */
+  opacity: 1;
   user-select: none;
   animation: floatUp linear forwards;
+  z-index: 0;
 }
 
+/* 定义向上飘动的动画 */
 @keyframes floatUp {
-  0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.8; }
-  100% { transform: translateY(-100px) rotate(360deg) scale(1); opacity: 0; }
-}
-
-@keyframes bounce-gentle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-@keyframes hat-wobble { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
-@keyframes sway { 0%, 100% { transform: rotate(2deg); } 50% { transform: rotate(-2deg); } }
-
-/* 响应式：屏幕太窄时隐藏侧边栏，以免遮挡内容 */
-@media (max-width: 1300px) {
-  .side-decoration { display: none; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+  }
 }
