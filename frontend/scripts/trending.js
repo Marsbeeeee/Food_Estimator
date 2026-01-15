@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 
 function playOpeningFireworks() {
   const container = document.body;
-  const fireworkCount = 6;
+  const fireworkCount = 7;
 
   for (let i = 0; i < fireworkCount; i++) {
     setTimeout(() => {
