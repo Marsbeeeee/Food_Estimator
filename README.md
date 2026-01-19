@@ -15,3 +15,34 @@ Food Estimator 是一个基于前端的 **像素风餐厅卡路里与点餐体�
 - 🧺 点餐动画：食物飞入餐盘
 - 🗣 NPC 互动：不同食物触发不同对话
 - 🎆 页面动画效果（火花、漂浮食物、角色动画）
+
+---
+
+## 🗂 Project Structure
+
+```text
+Food_Estimator/
+│
+├─ frontend/
+│  ├─ pages/
+│  │  ├─ main_page.html        # 首页（入口）
+│  │  ├─ trending.html         # 热门餐厅排行榜
+│  │  └─ kfc_dishes_page.html  # KFC 示例餐厅页
+│  │
+│  ├─ style/
+│  │  ├─ main_page.css
+│  │  ├─ trending.css
+│  │  └─ kfc_dishes_page.css
+│  │
+│  └─ scripts/
+│     ├─ main_page.js
+│     ├─ trending.js
+│     └─ kfc_dishes_page.js
+│
+├─ assets/
+│  └─ stores/
+│     └─ kfc/
+│        ├─ KFC_logo.png
+│        └─ red_kfc_chef.png
+│
+└─ README.md
