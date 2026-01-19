@@ -35,9 +35,9 @@ function orderItem(card) {
 
 // 核心：飞行抛物线逻辑
 function animateFlyingFood(startElem, imgSrc, onComplete) {
-    // 获取起始位置 (卡片图片的位置)
+    // 获取起始位置
     const startRect = startElem.querySelector('.food-img').getBoundingClientRect();
-    // 获取终点位置 (餐盘中间)
+    // 获取终点位置
     const endRect = traySlots.getBoundingClientRect();
 
     // 创建克隆体

@@ -42,8 +42,8 @@ body {
   align-items: center;
 }
 .npc-sprite {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin-top: 10px;
   animation: npc-breathe 2s infinite ease-in-out;
   transition: transform 0.2s;
@@ -58,7 +58,7 @@ body {
   padding: 0.5rem 1rem !important;
   min-width: 200px;
   text-align: center;
-  margin-bottom: 10px !important;
+  margin-bottom: 40px !important;
 }
 
 @keyframes npc-breathe {
