@@ -65,9 +65,12 @@ body {
   box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2);
 }
 .shop-interior {
-  background: #f2c48b;
+  background:
+    linear-gradient(90deg, rgba(141, 92, 47, 0.18) 0, rgba(141, 92, 47, 0.18) 2px, transparent 2px, transparent 16px),
+    linear-gradient(180deg, rgba(124, 78, 38, 0.22) 0, rgba(124, 78, 38, 0.22) 3px, transparent 3px, transparent 18px),
+    #f2c48b;
   border: 4px solid #2b1616;
-  padding: 20px;
+  padding: 26px 20px 22px;
   position: relative;
   box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
 }
@@ -83,6 +86,57 @@ body {
 }
 .shop-interior::before { left: 16px; }
 .shop-interior::after { right: 16px; }
+.shop-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 18px;
+  background: linear-gradient(180deg, #6b3a2a 0%, #4a261b 100%);
+  border-bottom: 3px solid #2b1616;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.25);
+}
+.shop-lights {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 26px;
+}
+.shop-lights .light {
+  width: 12px;
+  height: 16px;
+  background: #ffd98a;
+  border: 3px solid #2b1616;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.25);
+  position: relative;
+}
+.shop-lights .light::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 4px;
+  height: 10px;
+  background: #2b1616;
+  transform: translateX(-50%);
+}
+.wall-decor {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: #d99a5b;
+  border: 3px solid #2b1616;
+}
+.wall-decor-left {
+  left: 18px;
+  bottom: 18px;
+}
+.wall-decor-right {
+  right: 18px;
+  bottom: 18px;
+}
 .shop-sign {
   background: #ffffff;
   border: 4px solid #2b1616;
@@ -109,6 +163,7 @@ body {
   align-items: flex-start;
   gap: 28px;
   flex-wrap: wrap;
+  padding-top: 24px;
 }
 .shop-hud {
   background: #fff2da;
@@ -128,6 +183,16 @@ body {
   border: 2px solid #2b1616;
   pointer-events: none;
 }
+.hud-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.hud-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .hud-logo-frame {
   width: 72px;
   height: 72px;
@@ -136,7 +201,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   box-shadow: 3px 3px 0 rgba(43,22,22,0.35);
 }
 .hud-logo-frame img {
@@ -159,6 +224,48 @@ body {
   margin-top: 6px;
   color: #6b3a2a;
 }
+.hud-hp {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  margin: 14px 0 10px;
+  font-family: "DotGothic16", sans-serif;
+  font-size: 13px;
+}
+.hp-label {
+  color: #b14b2a;
+}
+.hp-track {
+  height: 12px;
+  background: #fff7e8;
+  border: 2px solid #2b1616;
+  position: relative;
+  box-shadow: inset 0 0 0 2px rgba(43,22,22,0.2);
+}
+.hp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b 0%, #f4b856 60%, #ffd98a 100%);
+}
+.hp-value {
+  color: #2b1616;
+}
+.hud-types {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-family: "DotGothic16", sans-serif;
+  font-size: 13px;
+}
+.type-badge {
+  padding: 4px 8px;
+  border: 2px solid #2b1616;
+  box-shadow: 3px 3px 0 rgba(43,22,22,0.3);
+}
+.type-fire { background: #ffb3a1; }
+.type-fight { background: #ffd24c; }
+.type-love { background: #ffd9ec; }
 .hud-stats {
   display: flex;
   gap: 10px;

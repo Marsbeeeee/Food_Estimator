@@ -22,19 +22,45 @@
             <span class="roof-tile"></span>
         </div>
         <div class="shop-interior">
+            <div class="shop-beam"></div>
+            <div class="shop-lights" aria-hidden="true">
+                <span class="light"></span>
+                <span class="light"></span>
+                <span class="light"></span>
+            </div>
+            <div class="wall-decor wall-decor-left"></div>
+            <div class="wall-decor wall-decor-right"></div>
             <div class="shop-content">
                 <div class="shop-hud" aria-label="Shop HUD">
-                    <div class="hud-logo-frame">
-                        <img src="/assets/stores/kfc/KFC_logo.png" alt="KFC Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                        <span class="logo-fallback" style="display:none">KFC</span>
+                    <div class="hud-header">
+                        <div class="hud-logo-frame">
+                            <img src="/assets/stores/kfc/KFC_logo.png" alt="KFC Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                            <span class="logo-fallback" style="display:none">KFC</span>
+                        </div>
+                        <div class="hud-title-block">
+                            <div class="hud-title">KFC</div>
+                            <div class="hud-subtitle">Fast Food Boss / Level 1 Store</div>
+                        </div>
                     </div>
-                    <div class="hud-title">KFC</div>
-                    <div class="hud-subtitle">Fast Food Boss / Level 1 Store</div>
-                                        <div class="hud-stats">
-                        <span class="hud-chip">⭐ 4.6</span>
-                        <span class="hud-chip">🔥 Hot Today</span>
+                    <div class="hud-hp">
+                        <span class="hp-label">HP</span>
+                        <div class="hp-track" role="img" aria-label="Popularity 76%">
+                            <div class="hp-fill" style="width: 76%"></div>
+                        </div>
+                        <span class="hp-value">76 / 100</span>
+                    </div>
+                    <div class="hud-types">
+                        <span class="type-badge type-fire">Spicy</span>
+                        <span class="type-badge type-fight">Crispy</span>
+                        <span class="type-badge type-love">Family</span>
+                    </div>
+                    <div class="hud-stats">
+                        <span class="hud-chip">? 4.6</span>
+                        <span class="hud-chip">Hot Today</span>
                     </div>
                 </div>
+
+                <div class="npc-container">
 
                 <div class="npc-container">
                     <div class="nes-balloon from-left npc-bubble">
