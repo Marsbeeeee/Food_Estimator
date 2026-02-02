@@ -11,21 +11,8 @@ body {
   background-image: radial-gradient(#e6dace 20%, transparent 20%);
   background-size: 20px 20px;
   font-family: "Press Start 2P", cursive;
-  padding-bottom: 120px; /* 给底部固定栏留位置 */
+  padding-bottom: 60px;
   overflow-x: hidden;
-}
-
-/* 顶部栏 */
-.top-bar {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.store-title {
-  color: var(--kfc-red);
-  font-size: 20px;
-  text-shadow: 2px 2px 0 #000;
 }
 
 /* NPC 区域 */
@@ -133,62 +120,31 @@ body {
   margin-top: 4px;
 }
 
-/* 底部餐盘固定栏 */
-.tray-bar {
+/* 购物篮按钮 */
+.cartBtn {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: 150 px;
-  background: #fff;
-  border-top: 4px solid var(--text-main);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 100;
-  box-shadow: 0 -4px 0 rgba(0,0,0,0.1);
+  right: 24px;
+  bottom: 24px;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  border: 4px solid var(--text-main);
+  background-color: #ffffff;
+  background-image: url('/assets/trending_page/picnic_basket_pixel.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 85%;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 99;
+  transition: transform 0.1s;
+  color: transparent;
+  font-size: 0;
 }
 
-.tray-label {
-  font-size: 14px;
-  margin-right: 10px;
-}
-
-.tray-slots {
-  flex: 1;
-  background: var(--tray-bg);
-  height: 70px;
-  margin: 0 20px;
-  border: 4px solid var(--text-main); /* 内陷效果 */
-  box-shadow: inset 4px 4px 0 rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  overflow-x: auto; /* 允许横向滚动 */
-  gap: 10px;
-}
-.empty-msg {
-  font-family: "DotGothic16", sans-serif;
-  color: #888;
-  width: 100%; text-align: center;
-}
-
-/* 餐盘中的小图标 */
-.tray-item {
-  width: 50px; height: 50px;
-  border: 2px solid #fff;
-  background: #fff;
-  flex-shrink: 0;
-  image-rendering: pixelated;
-  animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-@keyframes pop-in {
-  0% { transform: scale(0); }
-  100% { transform: scale(1); }
-}
-
-.tray-total {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
-  font-size: 14px;
+.cartBtn:active {
+  transform: translate(6px, 6px);
+  box-shadow: none;
 }
 
 /* --- 飞行动画的关键类 --- */
@@ -198,15 +154,14 @@ body {
   width: 60px;
   height: 60px;
   pointer-events: none; /* 确保不阻挡鼠标交互 */
-  transition: top 0.6s cubic-bezier(0.5, 0, 0.75, 0), left 0.6s linear, transform 0.6s linear;
+  transition: top 0.6s cubic-bezier(0.5, 0, 0.75, 0), left 0.6s linear, transform 0.6s linear, opacity 0.6s linear;
   /* top 使用 cubic-bezier 模拟重力加速 */
 }
 
-/* 餐盘接住食物时的抖动 */
-.tray-bounce {
-  animation: tray-squash 0.2s;
+.basket-bounce {
+  animation: basket-bounce 0.2s;
 }
-@keyframes tray-squash {
+@keyframes basket-bounce {
   0% { transform: scaleY(1); }
   50% { transform: scaleY(0.9); }
   100% { transform: scaleY(1); }
