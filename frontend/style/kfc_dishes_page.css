@@ -41,15 +41,146 @@ body {
   box-shadow: none;
 }
 
-/* NPC 区域 */
-.npc-section {
+/* 商店上半部分：像素屋顶 + 室内空间 */
+.shop-top {
+  max-width: 980px;
+  margin: 8px auto 40px;
+  padding: 0 20px;
+}
+.shop-roof {
+  height: 64px;
+  background: linear-gradient(180deg, #8b2a2f 0%, #6e1f24 100%);
+  border: 4px solid #2b1616;
+  border-bottom: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 8px 0 #2b1616;
+}
+.roof-tile {
+  background: linear-gradient(180deg, #a63a3f 0%, #7d2a2f 100%);
+  border: 3px solid #2b1616;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2);
+}
+.shop-interior {
+  background: #f2c48b;
+  border: 4px solid #2b1616;
+  padding: 20px;
+  position: relative;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
+}
+.shop-interior::before,
+.shop-interior::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: #d99a5b;
+  border: 3px solid #2b1616;
+  top: 16px;
+}
+.shop-interior::before { left: 16px; }
+.shop-interior::after { right: 16px; }
+.shop-sign {
+  background: #ffffff;
+  border: 4px solid #2b1616;
+  padding: 10px 16px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  margin-bottom: 18px;
+}
+.sign-title {
+  color: #e4002b;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.sign-sub {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 14px;
+  color: #2b1616;
+}
+.shop-content {
   display: flex;
   justify-content: center;
-  margin: 20px 0 40px;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
 }
+.shop-hud {
+  background: #fff2da;
+  color: #2b1616;
+  border: 4px solid #2b1616;
+  padding: 18px 18px 16px;
+  min-width: 260px;
+  max-width: 420px;
+  width: clamp(260px, 48vw, 420px);
+  box-shadow: 6px 6px 0 rgba(43,22,22,0.25);
+  position: relative;
+}
+.shop-hud::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 2px solid #2b1616;
+  pointer-events: none;
+}
+.hud-logo-frame {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #2b1616;
+  background: #ffe6c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 3px 3px 0 rgba(43,22,22,0.35);
+}
+.hud-logo-frame img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.logo-fallback {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 14px;
+}
+.hud-title {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.hud-subtitle {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 14px;
+  margin-top: 6px;
+  color: #6b3a2a;
+}
+.hud-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: "DotGothic16", sans-serif;
+  font-size: 14px;
+}
+.hud-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 2px solid #2b1616;
+  background: #fff7e8;
+  box-shadow: 3px 3px 0 rgba(43,22,22,0.3);
+  color: #b14b2a;
+}
+
+/* NPC ?? */
 .npc-container {
   position: relative;
-  width: 300px;
+  width: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +202,7 @@ body {
   padding: 0.5rem 1rem !important;
   min-width: 200px;
   text-align: center;
-  margin-bottom: 40px !important;
+  margin-bottom: 20px !important;
 }
 
 @keyframes npc-breathe {

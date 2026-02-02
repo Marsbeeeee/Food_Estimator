@@ -13,13 +13,37 @@
         <a href="/frontend/pages/trending.html" class="backBtn" aria-label="Back">&larr;</a>
     </header>
 
-    <section class="npc-section">
-        <div class="npc-container">
-            <div class="nes-balloon from-left npc-bubble">
-                <p id="npc-text">Welcome! Fresh chicken!</p>
-            </div>
-            <div class="npc-sprite" id="npc-sprite">
-                <img src="/assets/stores/kfc/red_kfc_chef.png" alt="Colonel" id="colonel-img">
+    <section class="shop-top">
+        <div class="shop-roof">
+            <span class="roof-tile"></span>
+            <span class="roof-tile"></span>
+            <span class="roof-tile"></span>
+            <span class="roof-tile"></span>
+            <span class="roof-tile"></span>
+        </div>
+        <div class="shop-interior">
+            <div class="shop-content">
+                <div class="shop-hud" aria-label="Shop HUD">
+                    <div class="hud-logo-frame">
+                        <img src="/assets/stores/kfc/KFC_logo.png" alt="KFC Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="logo-fallback" style="display:none">KFC</span>
+                    </div>
+                    <div class="hud-title">KFC</div>
+                    <div class="hud-subtitle">Fast Food Boss / Level 1 Store</div>
+                                        <div class="hud-stats">
+                        <span class="hud-chip">⭐ 4.6</span>
+                        <span class="hud-chip">🔥 Hot Today</span>
+                    </div>
+                </div>
+
+                <div class="npc-container">
+                    <div class="nes-balloon from-left npc-bubble">
+                        <p id="npc-text">Welcome! Fresh chicken!</p>
+                    </div>
+                    <div class="npc-sprite" id="npc-sprite">
+                        <img src="/assets/stores/kfc/red_kfc_chef.png" alt="Colonel" id="colonel-img">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
