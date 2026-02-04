@@ -1,0 +1,8 @@
+
+{
+  "name": "Food Pilot Agent",
+  "description": "An advanced nutritional analysis platform that uses AI to estimate calories and macros from food descriptions and images.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
