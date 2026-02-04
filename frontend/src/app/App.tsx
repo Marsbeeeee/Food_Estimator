@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
-import { Workspace } from './pages/Workspace';
-import { Explorer } from './pages/Explorer';
-import { Profile } from './pages/Profile';
-import { AppView, ChatSession, FoodLogEntry, UserProfile } from './types';
+import { Header } from '../components/Header';
+import { Workspace } from '../pages/Workspace';
+import { Explorer } from '../pages/Explorer';
+import { Profile } from '../pages/Profile';
+import { AppView, ChatSession, FoodLogEntry, UserProfile } from '../types/types';
 
 const MOCK_USER_SESSIONS: ChatSession[] = [
   {
