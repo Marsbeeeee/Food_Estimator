@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from backend.routers.health import router as health_router
 from fastapi.middleware.cors import CORSMiddleware
+from backend.routers.profile import router as profile_router
 
 app = FastAPI()
 
@@ -13,3 +14,4 @@ app.add_middleware(
 )
 
 app.include_router(health_router)
+app.include_router(profile_router)
