@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from backend.routers.health import router as health_router
-from fast.api.middleare.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
